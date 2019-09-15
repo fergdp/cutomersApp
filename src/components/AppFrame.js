@@ -17,7 +17,6 @@ const AppFrame = ({header, body}) => {
 AppFrame.propTypes = {
     header: PropTypes.string.isRequired,
     body: PropTypes.element.isRequired,
-
 };
 
 export default AppFrame;
