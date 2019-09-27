@@ -1,17 +1,32 @@
-import React from 'react';
-import { link, BrowserRouter as Router} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import HomeContainer from './containers/HomeContainer';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Link to="/customers">Customers</Link> <br></br>
-        <Link to="/customers/30242306">Customer 30242306</Link>
-      </div>
-    </Router>
-  );
+class App extends Component {
+
+  renderHome = () => <h1>Home</h1>;
+
+  renderCustomerContainer = () => <h1>Customer Container</h1>;
+
+  renderCustomerListContainer = () => <h1>Customers List Container</h1>;
+
+  renderCustomerNewContainer = () => <h1>Customer new container</h1>;
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/customers" component={this.renderCustomerListContainer} />
+          <Switch>
+            <Route path="/customers/new" component={this.renderCustomerNewContainer} />
+            <Route path="/customers/:dni" component={this.renderCustomerContainer} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
