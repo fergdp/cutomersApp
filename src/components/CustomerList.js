@@ -18,13 +18,6 @@ const CustomerList = ({ customers, urlPath}) => {
                         </CustomerListItem>
                         )
                 }
-                <CustomerListItem
-                    name={customers.name}
-                    editAction={'Editar'}
-                    delAction={'Eliminar'}
-                    urlPath={urlPath}
-                    dni={customers.dni}>
-                </CustomerListItem>
             </div>
         </div>
     );
