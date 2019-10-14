@@ -43,23 +43,7 @@ CustomersContainer.propTypes = {
 }
 
 CustomersContainer.defaultProps = {
-    customers: [
-        {
-            "dni": "30242306",
-            "name": "Fernando Gomez de Paz.",
-            "age": 35
-        },
-        {
-            "dni": "32154789",
-            "name": "Juan Perez.",
-            "age": 39
-        },
-        {
-            "dni": "30109942",
-            "name": "Analía Baigorria.",
-            "age": 36
-        }
-    ]
+    customers: []
 };
 
 export default withRouter(connect(null, { fetchCustomers })(CustomersContainer));
