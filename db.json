@@ -1,6 +1,11 @@
 {
   "customers": [
     {
+      "dni": "20254789",
+      "name": "Santiago Matias.",
+      "age": 35
+    },
+    {
       "dni": "30242306",
       "name": "Fernando Gomez de Paz.",
       "age": 35

@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { FETCH_CUSTOMERS } from '../constants';
+import { FETCH_CUSTOMERS } from '../constants/index';
 
 export const customers = handleActions(
     {

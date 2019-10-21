@@ -1,22 +1,8 @@
 import { FETCH_CUSTOMERS } from './../constants';
 import { createAction } from 'redux-actions';
 
-const customers = [
-   {
-       "dni": "30242306",
-       "name": "Fernando Gomez de Paz.",
-       "age": 35
-   },
-   {
-       "dni": "32154789",
-       "name": "Juan Perez.",
-       "age": 39
-   },
-   {
-       "dni": "30109942",
-       "name": "Analía Baigorria.",
-       "age": 36
-   }
-]
+const url = 'http://localhost:3001/customers'
 
-export const fetchCustomers = createAction(FETCH_CUSTOMERS, () => customers);
+const apiFetchCustomers = () => fetch(url).then(v => v.json());
+
+export const fetchCustomers = createAction(FETCH_CUSTOMERS, () => apiFetchCustomers());
