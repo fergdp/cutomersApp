@@ -1,21 +1,25 @@
 {
   "customers": [
     {
+      "id": "20254789",
       "dni": "20254789",
-      "name": "Santiago Matias Gomez de Paz.",
-      "age": 35
+      "name": "Santiago Gomez de Paz",
+      "age": "32"
     },
     {
+      "id": "30242306",
       "dni": "30242306",
       "name": "Fernando Gomez de Paz.",
-      "age": 35
+      "age": "35"
     },
     {
+      "id": "32154789",
       "dni": "32154789",
       "name": "Juan Perez.",
       "age": 39
     },
     {
+      "id": "30109942",
       "dni": "30109942",
       "name": "Analía Baigorria.",
       "age": 36
