@@ -16,11 +16,11 @@ const isNumber = value => (
 const validate = values => {
     const error = {};
 
-    if(!values.name) {
+    if (!values.name) {
         error.name = "El campo nombre es requerido";
     }
 
-    if(!values.dni) {
+    if (!values.dni) {
         error.dni = "El Dni es un campo obligatorio";
     }
 
@@ -36,7 +36,11 @@ const MyField = ({ input, meta, type, label, name }) => (
     </div>
 );
 
-const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack}) => {
+const toNumber = value => value && Number(value);
+const toUpper = value => value && value.toUpperCase();
+const toLower = value => value && value.toLowerCase();
+
+const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
     return (
         <div>
             <h2>Edición del cliente</h2>
@@ -44,7 +48,9 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack}) => {
                 <Field
                     name="name"
                     component={MyField}
-                    label="Nombre">
+                    label="Nombre"
+                    parse={toUpper}
+                    format={toLower}>
                 </Field>
                 <Field
                     name="dni"
@@ -57,7 +63,8 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack}) => {
                     component={MyField}
                     type="number"
                     validate={isNumber}
-                    label="Edad">
+                    label="Edad"
+                    parse={toNumber}>
                 </Field>
                 <CustomerActions>
                     <button type="Submit" disabled={submitting}>Aceptar</button>
@@ -76,7 +83,7 @@ CustomerEdit.propTypes = {
 };
 
 const CustomerEditForm = reduxForm(
-    { 
+    {
         form: 'CustomerEdit',
         validate
     })(CustomerEdit);
