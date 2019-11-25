@@ -39,6 +39,8 @@ const MyField = ({ input, meta, type, label, name }) => (
 const toNumber = value => value && Number(value);
 const toUpper = value => value && value.toUpperCase();
 const toLower = value => value && value.toLowerCase();
+const onlyGrow = (value, previousValue, values) => 
+        value && previousValue && (value > previousValue ? value : previousValue);
 
 const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
     return (
@@ -64,7 +66,8 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
                     type="number"
                     validate={isNumber}
                     label="Edad"
-                    parse={toNumber}>
+                    parse={toNumber}
+                    normalize={onlyGrow}>
                 </Field>
                 <CustomerActions>
                     <button type="Submit" disabled={submitting}>Aceptar</button>
