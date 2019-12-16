@@ -1,4 +1,3 @@
-
 export const apiget = (url) => fetch(url).then(v => v.json());
 
 export const apiPut = (url, id, obj) => 
@@ -6,4 +5,10 @@ export const apiPut = (url, id, obj) =>
         method:'PUT',
         body: JSON.stringify(obj),
         headers: new Headers({'Content-type': 'application/json'})
-    }).then(v => v.json());
+    }).then(v => v.json())
+    .then(r => {
+        if(r.error) {
+            return Promise.reject(r.validation);
+        }
+        return r;
+    });

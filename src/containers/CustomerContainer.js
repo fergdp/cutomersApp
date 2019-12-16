@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SubmissionError } from 'redux-form';
 import PropTypes from 'prop-types';
 import AppFrame from '../components/AppFrame';
 import { getCustomersByDni } from '../selectors/customers';
@@ -20,7 +21,11 @@ class CustomerContainer extends Component {
     handleSubmit = values => {
         console.log(JSON.stringify(values));
         const {id} = values;
-        return this.props.updateCustomer(id, values);
+        return this.props.updateCustomer(id, values).then(r => {
+            if(r.error) {
+                throw new SubmissionError(r.payload);
+            }
+        });
     }
 
     handleOnBack = () => {
