@@ -26,6 +26,7 @@ CustomerData.propTypes = {
     age: PropTypes.number,
     onBack: PropTypes.func.isRequired,
     isDeleteAllow: PropTypes.bool,
+    onDelete: PropTypes.func,
 };
 
 export default CustomerData;

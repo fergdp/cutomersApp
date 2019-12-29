@@ -20,9 +20,9 @@ class CustomerContainer extends Component {
 
     handleSubmit = values => {
         console.log(JSON.stringify(values));
-        const {id} = values;
+        const { id } = values;
         return this.props.updateCustomer(id, values).then(r => {
-            if(r.error) {
+            if (r.error) {
                 throw new SubmissionError(r.payload);
             }
         });
@@ -36,15 +36,24 @@ class CustomerContainer extends Component {
         this.props.history.goBack();
     }
 
+    renderCustomerControl = (isEdit, isDelete) => {
+        if (this.props.customer) {
+            const CustomerControl = isEdit ? CustomerEdit : CustomerData;
+            return <CustomerControl {...this.props.customer}
+                onSubmit={this.handleSubmit}
+                onSubmitSuccess={this.handleOnSubmitSuccess}
+                onBack={this.handleOnBack} />
+        }
+    }
+
     renderBody = () => (
         <Route path="/customers/:dni/edit" children={
-            ({ match }) => {
-                const CustomerControl = match ? CustomerEdit : CustomerData;
-                return <CustomerControl {...this.props.customer}
-                    onSubmit={this.handleSubmit}
-                    onSubmitSuccess={this.handleOnSubmitSuccess}
-                    onBack={this.handleOnBack} />
-            }
+            ({ match: isEdit}) => (
+                <Route path="/customers/:dni/del" children={
+                    ({ match: isDelete }) => (
+                        this.renderCustomerControl(isEdit, isDelete))
+                } />)
+
         } />
     )
     //<p>Datos del cliente {this.props.customer.name}</p>
