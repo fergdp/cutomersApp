@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
-import CustomerActions from './CustomerActions';
+import CustomersActions from './CustomersActions';
 import { Prompt } from 'react-router-dom';
 
 /*
@@ -84,14 +84,14 @@ class CustomerEdit extends Component {
                         parse={toNumber}
                         normalize={onlyGrow}>
                     </Field>
-                    <CustomerActions>
+                    <CustomersActions>
                         <button type="Submit" disabled={pristine || submitting}>
                             Aceptar
                         </button>
                         <button type="button" disabled={submitting} onClick={onBack}>
                             Cancelar
                         </button>
-                    </CustomerActions>
+                    </CustomersActions>
                     <Prompt
                         when={!pristine && !submitSucceeded}
                         message="Se perderán los datos si continua">

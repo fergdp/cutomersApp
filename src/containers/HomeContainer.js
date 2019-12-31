@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import AppFrame from './../components/AppFrame';
-import CustomerActions from './../components/CustomerActions';
+import CustomersActions from '../components/CustomersActions';
 
 class HomeContainer extends Component {
 
@@ -14,13 +14,13 @@ class HomeContainer extends Component {
         return (
             <div>
                 <AppFrame
-                    header='Home'
+                    header='Inicio'
                     body={
                         <div>
                         Esta es la pantalla inicial
-                        <CustomerActions>
+                        <CustomersActions>
                                 <button onClick={this.handleOnClick}>Listado de clientes</button>
-                            </CustomerActions>
+                            </CustomersActions>
                         </div>
                     }>
                 </AppFrame>

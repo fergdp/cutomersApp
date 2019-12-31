@@ -39,18 +39,18 @@ body {
   border-style: solid;
 }
 
-.customers-list .customers-list-item {
+.customers-list-item {
   width: 100%;
   background: #FFF; 
   transition: 500ms;
   height: 40px;
 }
 
-.customers-list .customers-list-item:nth-child(even) {
+.customers-list-item:nth-child(even) {
   background: #EEE;  
 }
 
-.customers-list .customers-list-item:hover {
+.customers-list-item:hover {
   background: #84adad3a;
   border: 1px solid;
 } 

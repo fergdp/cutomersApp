@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppFrame from '../components/AppFrame';
 import CustomerList from '../components/CustomerList';
-import CustomerActions from '../components/CustomerActions';
+import CustomersActions from '../components/CustomersActions';
 import { fetchCustomers } from './../actions/fetchCustomers';
 import { getCustomers } from './../selectors/customers';
 
@@ -25,9 +25,9 @@ class CustomersContainer extends Component {
                 customers={customers}
                 urlPath={'customers/'}>
             </CustomerList>
-            <CustomerActions>
+            <CustomersActions>
                 <button onClick={this.handleAddNew}>Nuevo Cliente</button>
-            </CustomerActions>
+            </CustomersActions>
         </div>
     )
 

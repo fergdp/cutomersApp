@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CustomerActions from './CustomerActions';
+import CustomersActions from './CustomersActions';
 
 const CustomerData = ({ id, name, dni, age, onBack, isDeleteAllow, onDelete }) => {
     return (
         <div>
             <div className="customer-data">
-                <h2>Datos del Cliente</h2>
-                <div><strong>Nombre</strong><i>{name}</i></div>
-                <div><strong>DNI</strong><i>{dni}</i></div>
-                <div><strong>Edad</strong><i>{age}</i></div>
+                <h2>Datos del cliente</h2>
+                <div><strong>Nombre: </strong><i>{name}</i></div>
+                <div><strong>DNI: </strong><i>{dni}</i></div>
+                <div><strong>Edad: </strong><i>{age}</i></div>
             </div>
-            <CustomerActions>
+            <CustomersActions>
                 <button onClick={onBack}>Volver</button>
                 {isDeleteAllow && <button onClick={() => onDelete(id)}>Eliminar</button>}
-            </CustomerActions>
+            </CustomersActions>
         </div>
-
-    );
+    )
 };
 
 CustomerData.propTypes = {
